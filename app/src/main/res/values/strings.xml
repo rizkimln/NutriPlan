@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">TugasHalamanawal</string>
+    <string name="LOKASI">lokasi</string>
+    <string name="Alamat"><![CDATA[Sardonoharjo, Jl. Kaliurang No.Km. 13, Candi Karang, Sinduharjo, Kec. Ngaglik, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55581]]></string>
+    <string name="Kategori"><![CDATA[> Aerobik\n> Bersepeda\n> Kelas Remaja\n> Kickboxing\n> Konsultasi nutrisi\n> Les privat\n> Pelatihan pribadi\n> Zumba\n> Functional Training]]></string>
+    <string name="Deskripsi">GYMRAT adalah destinasi kebugaran utama yang sepenuhnya dilengkapi untuk memenuhi semua kebutuhan pelatihan Anda. Apakah Anda tertarik pada bodybuilding, pelatihan fungsional, cross training, atau angkat berat Olimpiade, GYMRAT siap membantu. GYMRAT adalah tempat yang sempurna untuk mencapai tujuan kebugaran Anda.</string>
+    <string name="JudulDeskripsi">DESKRIPSI</string>
+    <string name="JudulLayanan">LAYANAN</string>
+    <string name="Redegistrasi">registrasi</string>
+    <string name="Username">username\n</string>
+    <string name="Email">email</string>
+    <string name="Password">password</string>
+    <string name="Masuk">masuk\n</string>
+</resources>

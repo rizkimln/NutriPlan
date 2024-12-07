@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "552130232554",
+    "project_id": "tugashalamanawal",
+    "storage_bucket": "tugashalamanawal.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552130232554:android:7adc59184b81be1b4a5793",
+        "android_client_info": {
+          "package_name": "com.example.tugashalamanawal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTC6w4b5NcXD_037xQVJjTDDcHsqKssKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
