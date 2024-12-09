@@ -1,5 +1,6 @@
 package com.example.tugashalamanawal
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -47,6 +48,7 @@ class Register : AppCompatActivity() {
                 firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this){task->
                     if(task.isComplete){
                         Toast.makeText(applicationContext, "berhasil", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this,Login::class.java))
 
                     } else{
                         Toast.makeText(applicationContext, "gagal", Toast.LENGTH_SHORT).show()

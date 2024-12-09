@@ -11,4 +11,6 @@
     <string name="Email">email</string>
     <string name="Password">password</string>
     <string name="Masuk">masuk\n</string>
+    <string name="Welcome">welcome\n</string>
+    <string name="MasukAkun">masukAkun</string>
 </resources>
