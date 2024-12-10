@@ -13,4 +13,16 @@
     <string name="Masuk">masuk\n</string>
     <string name="Welcome">welcome\n</string>
     <string name="MasukAkun">masukAkun</string>
+    <string name="nutrichat">Halo, saya NutriChat! ✋ Apa yang bisa saya bantu?</string>
+    <string name="rekomendasi">Rekomendasi Pola Makan</string>
+    <string name="rekomendasi2">Rekomendasi Camilan Sehat</string>
+    <string name="nutri_chat">NutriChat</string>
+    <string name="aktif">aktif</string>
+    <string name="tulis_pesan">Tulis pesan</string>
+    <string name="avatar_description">Avatar NutriChat</string>
+    <string name="camera_description">Buka kamera</string>
+    <string name="gallery_description">Buka galeri</string>
+    <string name="send_description">Kirim pesan</string>
+    <string name="back_button_description">Tombol Kembali</string>
+
 </resources>
