@@ -24,5 +24,18 @@
     <string name="gallery_description">Buka galeri</string>
     <string name="send_description">Kirim pesan</string>
     <string name="back_button_description">Tombol Kembali</string>
-
+    <string name="name">Rizki Febian</string>
+    <string name="mail">ABCDE@gmail.com</string>
+    <string name="telp">+628556654333</string>
+    <string name="edit_button_description">Tombol untuk mengedit profil</string>
+    <string name="profile_image_description">Foto profil pengguna</string>
+    <string name="program_icon_description">Ikon program bulking</string>
+    <string name="location_icon_description">Ikon pengaturan lokasi</string>
+    <string name="lokasi">Lokasi</string>
+    <string name="arrow_right_icon_description">Ikon panah ke kanan</string>
+    <string name="logout_icon_description">Ikon untuk logout</string>
+    <string name="edit_icon_description">Edit Profile</string>
+    <string name="profil">Profil</string>
+    <string name="location_icon">Location Icon</string>
+    <string name="nama_lengkap">Nama Lengkap</string>
 </resources>
