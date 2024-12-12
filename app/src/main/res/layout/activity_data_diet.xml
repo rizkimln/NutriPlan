@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:padding="16dp"
     android:background="#233A66"
-    android:id="@+id/dataDietUnder90kg">
+    android:id="@+id/dataDiet">
 
     <LinearLayout
         android:layout_width="match_parent"
