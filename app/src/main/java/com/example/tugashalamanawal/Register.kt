@@ -39,24 +39,26 @@ class Register : AppCompatActivity() {
         }
 
         battonmasuk.setOnClickListener(View.OnClickListener {
-            var email=emailuser.text.toString().trim()
-            var password=passworduser.text.toString().trim()
-            if (email.isEmpty()||password.isEmpty()){
+            val email = emailuser.text.toString().trim()
+            val password = passworduser.text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty()) {
                 Toast.makeText(applicationContext, "ga boleh kosong", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                firebaseAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this){task->
-                    if(task.isComplete){
-                        Toast.makeText(applicationContext, "berhasil", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this,Login::class.java))
-
-                    } else{
-                        Toast.makeText(applicationContext, "gagal", Toast.LENGTH_SHORT).show()
+            } else {
+                firebaseAuth.createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) { // Periksa apakah sukses
+                            Toast.makeText(applicationContext, "berhasil", Toast.LENGTH_SHORT).show()
+                            startActivity(Intent(this, Login::class.java))
+                        } else {
+                            // Tangkap kesalahan dan tampilkan pesan
+                            val errorMessage = task.exception?.message ?: "gagal"
+                            Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_SHORT).show()
+                        }
                     }
-
-                }
             }
         })
+
     }
 
 

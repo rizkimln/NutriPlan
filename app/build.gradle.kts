@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.tugashalamanawal"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.tugashalamanawal"
@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
+    implementation("com.google.firebase:firebase-auth:22.0.0")
     implementation(libs.androidx.constraintlayout)
     implementation(libs.firebase.auth)
     testImplementation(libs.junit)
