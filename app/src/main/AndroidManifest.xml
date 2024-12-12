@@ -12,13 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TugasHalamanawal"
         tools:targetApi="31">
-
+        <activity
+            android:name=".DataDiet"
+            android:exported="false" />
+        <activity
+            android:name=".Bulking"
+            android:exported="false"/>
+        <activity
+            android:name=".Diet_under90kg"
+            android:exported="false" />
+        <activity
+            android:name=".Diet_up90kg"
+            android:exported="false" />
         <activity
             android:name=".moza_cute"
             android:exported="false" />
-        <activity
-            android:name=".MenuMakanan"
-            android:exported="false" />
+
         <activity
             android:name=".Login"
             android:exported="false" />
