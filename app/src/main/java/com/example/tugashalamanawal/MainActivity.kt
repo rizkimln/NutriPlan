@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -19,12 +20,15 @@ class MainActivity : AppCompatActivity() {
     private lateinit var recyclerViewNearestGym: RecyclerView
     private lateinit var gymAdapter: GymAdapter
     private  lateinit var imageButton: ImageButton
+    private  lateinit var  programBulking : LinearLayout
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
         imageButton=findViewById(R.id.imageButton)
+        programBulking=findViewById(R.id.programBulking)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -34,6 +38,15 @@ class MainActivity : AppCompatActivity() {
         imageButton.setOnClickListener(View.OnClickListener {
             startActivity(Intent(this, Register::class.java))
         })
+
+        // Set listener untuk "programBulking"
+        programBulking.setOnClickListener {
+            // Intent untuk membuka BulkingActivity
+            val intent = Intent(this, Bulking::class.java)
+            startActivity(intent)
+        }
+
+
 
         // Panggil fungsi recyclerViewCategory untuk setup RecyclerView
         recyclerViewCategory()
