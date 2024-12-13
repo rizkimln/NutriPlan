@@ -35,9 +35,7 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        imageButton.setOnClickListener(View.OnClickListener {
-            startActivity(Intent(this, Register::class.java))
-        })
+
 
         // Set listener untuk "programBulking"
         programBulking.setOnClickListener {

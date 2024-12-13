@@ -19,6 +19,7 @@ class Login : AppCompatActivity() {
     private lateinit var emailuser : EditText
     private lateinit var passworduser : EditText
     private lateinit var battonmasuk : Button
+    private lateinit var battonregistrasi : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +29,19 @@ class Login : AppCompatActivity() {
         emailuser = findViewById(R.id.editEmail)
         passworduser = findViewById(R.id.editPassword)
         battonmasuk = findViewById(R.id.btnMasuk)
+        battonregistrasi = findViewById(R.id.btnRegistrasi)
         firebaseAuth = FirebaseAuth.getInstance()
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        battonregistrasi.setOnClickListener {
+            // Intent untuk membuka BulkingActivity
+            val intent = Intent(this, Register::class.java)
+            startActivity(intent)
         }
 
         battonmasuk.setOnClickListener(View.OnClickListener {

@@ -79,8 +79,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bubble_background"
+            android:hint="Respon yang dari NutriChat"
             android:padding="16dp"
-            android:text="@string/nutrichat"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
     </LinearLayout>
@@ -93,29 +93,7 @@
         android:layout_below="@id/chat_bubble_section"
         android:layout_marginTop="16dp"
         android:orientation="horizontal"
-        android:gravity="center">
-
-        <Button
-            android:id="@+id/btn_rekomendasi_pola_makan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/yellow"
-            android:text="@string/rekomendasi"
-            android:textColor="@color/black"
-            android:padding="12dp"
-            android:elevation="4dp" />
-
-        <Button
-            android:id="@+id/btn_rekomendasi_camilan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/yellow"
-            android:text="@string/rekomendasi2"
-            android:textColor="@color/black"
-            android:padding="12dp"
-            android:elevation="4dp" />
-    </LinearLayout>
+        android:gravity="center"/>
 
     <!-- Input Box Section -->
     <LinearLayout
@@ -126,24 +104,6 @@
         android:orientation="horizontal"
         android:padding="12dp"
         android:background="@drawable/rounded_background2">
-
-        <ImageView
-            android:id="@+id/btn_image"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_camera"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="@string/camera_description"
-            />
-
-        <ImageView
-            android:id="@+id/btn_gallery"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_gallery"
-            android:layout_marginEnd="8dp"
-            android:contentDescription="@string/gallery_description"
-             />
 
         <EditText
             android:id="@+id/input_message"
