@@ -26,7 +26,7 @@ class Register : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_register)
 
-        usernameuser = findViewById(R.id.editUsername)
+//        usernameuser = findViewById(R.id.editUsername)
         emailuser = findViewById(R.id.editEmail)
         passworduser = findViewById(R.id.editPassword)
         battonmasuk = findViewById(R.id.btnMasuk)

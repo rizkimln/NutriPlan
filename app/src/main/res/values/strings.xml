@@ -42,4 +42,7 @@
     <string name="location_icon">Location Icon</string>
     <string name="nama_lengkap">Nama Lengkap</string>
     <string name="registrasi">Registrasi</string>
+
+
+    <string name="btnRegistrasi" type="id">btnRegistrasi</string>
 </resources>

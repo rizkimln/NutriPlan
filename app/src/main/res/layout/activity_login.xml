@@ -106,19 +106,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPassword" />
 
-    <!--    <Button-->
-<!--        android:id="@+id/btnRegistrasi"-->
-<!--        android:layout_width="327dp"-->
-<!--        android:layout_height="56dp"-->
-<!--        android:layout_marginTop="84dp"-->
+        <Button
+        android:id="@+id/btnRegistrasi"
+        android:layout_width="327dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="84dp"
 
-<!--        android:insetTop="7dp"-->
-<!--        android:insetBottom="7dp"-->
-<!--        android:text="@string/registrasi"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.583"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/editPassword" />-->
+        android:insetTop="7dp"
+        android:insetBottom="7dp"
+        android:text="@string/registrasi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
 
     <ImageView
         android:id="@+id/back_button"
