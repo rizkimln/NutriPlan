@@ -57,7 +57,7 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/roundedcorner"
         android:ems="10"
-        android:hint="email"
+        android:hint="Email"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.602"
@@ -85,7 +85,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/roundedcorner"
         android:ems="10"
-        android:hint="password"
+        android:hint="Kata Sandi"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
@@ -106,7 +106,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editPassword" />
 
-    <Button
+        <Button
         android:id="@+id/btnRegistrasi"
         android:layout_width="327dp"
         android:layout_height="56dp"
@@ -121,12 +121,26 @@
         app:layout_constraintTop_toBottomOf="@+id/editPassword" />
 
     <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/back_button_description"
+        android:padding="8dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
+
+    <ImageView
         android:id="@+id/imageView"
         android:layout_width="318dp"
         android:layout_height="408dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMasuk"
         app:srcCompat="@drawable/loginregist" />
