@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="Sehat itu bukan tujuan, tapi perjalanan.\nYuk, miliki badan ideal !"
+            android:text="@string/text_label"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="16sp"
