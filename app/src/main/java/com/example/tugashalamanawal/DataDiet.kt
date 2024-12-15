@@ -12,7 +12,7 @@ class DataDiet : AppCompatActivity() {
         setContentView(R.layout.activity_data_diet)
 
         // Pastikan elemen dengan ID "main" ada di layout
-        val mainView = findViewById<View>(R.id.main)
+        val mainView = findViewById<View>(R.id.dataDiet)
         ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)

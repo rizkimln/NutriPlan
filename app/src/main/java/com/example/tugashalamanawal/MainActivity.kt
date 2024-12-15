@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var gymAdapter: GymAdapter
     private  lateinit var imageButton: ImageButton
     private  lateinit var  programBulking : LinearLayout
+    private lateinit var programDivisitKalori :LinearLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         imageButton=findViewById(R.id.imageButton)
         programBulking=findViewById(R.id.programBulking)
+        programDivisitKalori=findViewById(R.id.programDivisitKalori)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -40,7 +42,12 @@ class MainActivity : AppCompatActivity() {
         // Set listener untuk "programBulking"
         programBulking.setOnClickListener {
             // Intent untuk membuka BulkingActivity
-            val intent = Intent(this, Bulking::class.java)
+            val intent = Intent(this, DataBulking::class.java)
+            startActivity(intent)
+        }
+
+        programDivisitKalori.setOnClickListener{
+            val intent = Intent(this,DataDiet::class.java)
             startActivity(intent)
         }
 
