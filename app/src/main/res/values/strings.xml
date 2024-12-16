@@ -41,4 +41,9 @@
     <string name="registrasi">Registrasi</string>
     <string name="text_label">"Sehat itu bukan tujuan, tapi perjalanan.
         Yuk, Tambah masa otot !"</string>
+    <string name="food_image">Food Image</string>
+    <string name="hari_ke_x">Hari ke X</string>
+    <string name="selesai">Selesai</string>
+    <string name="bulking_teks">Latihan yang akan membuatmu\nmenjadi yang kamu mau</string>
+
 </resources>
