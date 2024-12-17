@@ -99,11 +99,13 @@ class Register : AppCompatActivity() {
                                     .addOnSuccessListener {
                                         Toast.makeText(
                                             applicationContext,
-                                            "Registrasi dan penyimpanan berhasil",
+                                            "Registrasi berhasil",
                                             Toast.LENGTH_SHORT
                                         ).show()
+
                                         startActivity(Intent(this, Login::class.java))
                                         finish()
+
                                     }
                                     .addOnFailureListener { e ->
                                         Toast.makeText(

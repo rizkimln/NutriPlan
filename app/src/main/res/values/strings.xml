@@ -45,5 +45,6 @@
     <string name="hari_ke_x">Hari ke X</string>
     <string name="selesai">Selesai</string>
     <string name="bulking_teks">Latihan yang akan membuatmu\nmenjadi yang kamu mau</string>
+    <string name="username_placeholder">usernameProfil\n</string>
 
 </resources>

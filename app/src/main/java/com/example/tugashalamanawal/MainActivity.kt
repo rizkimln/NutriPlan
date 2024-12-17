@@ -51,6 +51,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        imageButton.setOnClickListener{
+            val intent = Intent(this,ProfilUser::class.java)
+            startActivity(intent)
+        }
+
 
 
         // Panggil fungsi recyclerViewCategory untuk setup RecyclerView
