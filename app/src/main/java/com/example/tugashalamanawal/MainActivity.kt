@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             "Gym B" -> {
-                val intent = Intent(this, NearestGYM::class.java)
+                val intent = Intent(this, ItemClassOnline2::class.java)
                 intent.putExtra("gym_name", gym.name) // Kirim data jika diperlukan
                 startActivity(intent)
             }
