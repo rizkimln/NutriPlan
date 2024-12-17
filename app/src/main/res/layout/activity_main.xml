@@ -234,6 +234,7 @@
 
                 <!-- ImageView dalam CardView -->
                 <LinearLayout
+                    android:id="@+id/ResepMakanan"
                     android:layout_width="136dp"
                     android:layout_height="match_parent"
                     android:orientation="vertical"

@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private  lateinit var imageButton: ImageButton
     private  lateinit var  programBulking : LinearLayout
     private lateinit var programDivisitKalori :LinearLayout
+    private lateinit var resepMakanan :LinearLayout
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         imageButton=findViewById(R.id.imageButton)
         programBulking=findViewById(R.id.programBulking)
         programDivisitKalori=findViewById(R.id.programDivisitKalori)
+        resepMakanan=findViewById(R.id.ResepMakanan)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -55,6 +57,16 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this,ProfilUser::class.java)
             startActivity(intent)
         }
+
+        resepMakanan.setOnClickListener{
+            val intent = Intent(this,RecipeMenuActivity::class.java)
+            startActivity(intent)
+        }
+
+
+
+
+
 
 
 
@@ -91,7 +103,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             "Gym B" -> {
-                // Tambahkan navigasi untuk Gym B jika diperlukan
+                val intent = Intent(this, NearestGYM::class.java)
+                intent.putExtra("gym_name", gym.name) // Kirim data jika diperlukan
+                startActivity(intent)
             }
             // Tambahkan else atau case untuk gym lainnya
             else -> {
