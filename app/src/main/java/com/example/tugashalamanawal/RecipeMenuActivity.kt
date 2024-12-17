@@ -1,20 +1,29 @@
 package com.example.tugashalamanawal
 
 import android.os.Bundle
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-data class Recipe(
-    val name: String,
-    val imageResource: Int
-)
+class Recipe(val name: String, val imageResource: Int)
 
 class RecipeMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.recipe_menu) // Ensure this matches your XML file name
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_recipe_menu)
 
+        // Apply padding for system bars
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { view, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // Recipe list
         val recipes = listOf(
             Recipe("Steak Daging Sapi", R.drawable.beef_steak),
             Recipe("Brokoli Sapi", R.drawable.beef_brokoli),

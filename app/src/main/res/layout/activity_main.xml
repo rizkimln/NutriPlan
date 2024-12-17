@@ -422,41 +422,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textNearestGym"
             android:orientation="horizontal" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardViewDietDefisitKalori"
-            android:layout_width="150dp"
-            android:layout_height="180dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginHorizontal="15dp"
-            app:cardBackgroundColor="#EBAB44"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="4dp"
-            app:cardUseCompatPadding="true">
 
-            <LinearLayout
-                android:layout_width="136dp"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="5dp">
-
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="80dp"
-                    android:layout_height="114dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="0dp"
-                    app:srcCompat="@drawable/sder" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:gravity="center"
-                    android:text="Diet Defisit Kalori"
-                    android:textColor="#2F2F2F"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
 
 
