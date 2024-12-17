@@ -21,6 +21,11 @@
             android:name=".ProfilUser"
             android:exported="false" />
         <activity
+            android:name=".LokasiActivity"
+            android:exported="true"/>
+
+
+        <activity
             android:name=".DataBulking"
             android:exported="false" /> <!-- Aktivitas lainnya -->
         <activity
@@ -58,10 +63,12 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity> <!-- MainActivity tanpa intent-filter -->
         <activity
             android:name=".MainActivity"
             android:exported="true" />
+
     </application>
 
 </manifest>
