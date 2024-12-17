@@ -103,7 +103,9 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
             "Gym B" -> {
-                // Tambahkan navigasi untuk Gym B jika diperlukan
+                val intent = Intent(this, NearestGYM::class.java)
+                intent.putExtra("gym_name", gym.name) // Kirim data jika diperlukan
+                startActivity(intent)
             }
             // Tambahkan else atau case untuk gym lainnya
             else -> {
