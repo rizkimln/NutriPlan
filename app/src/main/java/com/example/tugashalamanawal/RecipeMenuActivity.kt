@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tugashalamanawal.R
+import com.example.tugashalamanawal.RecipeDetailActivity
 
 data class Recipe(
     val name: String,
