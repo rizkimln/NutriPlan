@@ -1,29 +1,23 @@
-package com.example.tugashalamanawal
+package com.example.nutriplan
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tugashalamanawal.R
 
-class Recipe(val name: String, val imageResource: Int)
+data class Recipe(
+    val name: String,
+    val imageResource: Int // Drawable resource ID
+)
 
 class RecipeMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_recipe_menu)
+        setContentView(R.layout.recipe_menu)
 
-        // Apply padding for system bars
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { view, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            view.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        // Recipe list
+        // List of recipes
         val recipes = listOf(
             Recipe("Steak Daging Sapi", R.drawable.beef_steak),
             Recipe("Brokoli Sapi", R.drawable.beef_brokoli),
@@ -36,9 +30,16 @@ class RecipeMenuActivity : AppCompatActivity() {
             Recipe("Yakiniku Daging Sapi", R.drawable.beef_yakiniku)
         )
 
-        // Initialize RecyclerView
+        // RecyclerView setup
         val recyclerView: RecyclerView = findViewById(R.id.recipeRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = RecipeAdapter(recipes)
+        recyclerView.adapter = RecipeAdapter(recipes) { selectedRecipe ->
+            // Launch RecipeDetailActivity and pass data
+            val intent = Intent(this, RecipeDetailActivity::class.java).apply {
+                putExtra("RECIPE_NAME", selectedRecipe.name)
+                putExtra("RECIPE_IMAGE", selectedRecipe.imageResource)
+            }
+            startActivity(intent)
+        }
     }
 }

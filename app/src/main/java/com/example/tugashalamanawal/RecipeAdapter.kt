@@ -1,15 +1,17 @@
-package com.example.tugashalamanawal
+package com.example.nutriplan
 
 import android.view.LayoutInflater
-import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.tugashalamanawal.R
 
-
-class RecipeAdapter(private val recipeList: List<Recipe>) :
-    RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
+class RecipeAdapter(
+    private val recipeList: List<Recipe>,
+    private val onRecipeClick: (Recipe) -> Unit // Callback for clicks
+) : RecyclerView.Adapter<RecipeAdapter.RecipeViewHolder>() {
 
     class RecipeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val recipeImage: ImageView = itemView.findViewById(R.id.recipeImage)
@@ -26,6 +28,11 @@ class RecipeAdapter(private val recipeList: List<Recipe>) :
         val recipe = recipeList[position]
         holder.recipeName.text = recipe.name
         holder.recipeImage.setImageResource(recipe.imageResource)
+
+        // Set click listener
+        holder.itemView.setOnClickListener {
+            onRecipeClick(recipe) // Trigger callback
+        }
     }
 
     override fun getItemCount(): Int = recipeList.size
