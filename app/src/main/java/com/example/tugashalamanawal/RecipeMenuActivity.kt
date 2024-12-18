@@ -1,20 +1,22 @@
 package com.example.tugashalamanawal
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tugashalamanawal.R
+import com.example.tugashalamanawal.Recipe
+import com.example.tugashalamanawal.RecipeAdapter
+import com.example.tugashalamanawal.RecipeDetailActivity
 
-data class Recipe(
-    val name: String,
-    val imageResource: Int
-)
 
 class RecipeMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.recipe_menu) // Ensure this matches your XML file name
+        setContentView(R.layout.recipe_menu)
 
+        // List of recipes
         val recipes = listOf(
             Recipe("Steak Daging Sapi", R.drawable.beef_steak),
             Recipe("Brokoli Sapi", R.drawable.beef_brokoli),
@@ -27,9 +29,16 @@ class RecipeMenuActivity : AppCompatActivity() {
             Recipe("Yakiniku Daging Sapi", R.drawable.beef_yakiniku)
         )
 
-        // Initialize RecyclerView
+        // RecyclerView setup
         val recyclerView: RecyclerView = findViewById(R.id.recipeRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = RecipeAdapter(recipes)
+        recyclerView.adapter = RecipeAdapter(recipes) { selectedRecipe ->
+            // Launch RecipeDetailActivity and pass data
+            val intent = Intent(this, RecipeDetailActivity::class.java).apply {
+                putExtra("RECIPE_NAME", selectedRecipe.name)
+                putExtra("RECIPE_IMAGE", selectedRecipe.imageResource)
+            }
+            startActivity(intent)
+        }
     }
 }

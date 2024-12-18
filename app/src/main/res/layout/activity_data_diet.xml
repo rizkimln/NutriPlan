@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:id="@+id/dataDiet"
     android:background="#FFFFFF">
 
     <LinearLayout
@@ -25,86 +26,89 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sehat itu bukan tujuan, tapi perjalanan.\nYuk, mulai sekarang!"
+            android:layout_marginBottom="24dp"
+            android:gravity="center"
+            android:text="Sehat itu bukan tujuan, tapi perjalanan.\nYuk, miliki badan ideal !"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:gravity="center"
-            android:layout_marginBottom="24dp" />
+            android:textStyle="bold" />
 
         <!-- Input Fields -->
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:text="Umur"
             android:textColor="#000000"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/input_age"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/input_border"
             android:hint=""
             android:inputType="text"
-            android:background="@drawable/input_border"
-            android:padding="10dp"
-            android:layout_marginBottom="16dp" />
+            android:minHeight="40dp"
+            android:padding="10dp" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:text="Tinggi Badan"
             android:textColor="#000000"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/input_height"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/input_border"
             android:hint=""
             android:inputType="text"
-            android:background="@drawable/input_border"
-            android:padding="10dp"
-            android:layout_marginBottom="16dp" />
+            android:minHeight="48dp"
+            android:padding="10dp" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
             android:text="Berat Badan"
             android:textColor="#000000"
-            android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
+            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/input_weight"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/input_border"
             android:hint=""
             android:inputType="text"
-            android:background="@drawable/input_border"
-            android:padding="10dp"
-            android:layout_marginBottom="32dp" />
+            android:minHeight="48dp"
+            android:padding="10dp" />
 
         <!-- Start Button -->
         <Button
             android:id="@+id/start_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Mulai"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
             android:backgroundTint="#EBAB44"
-            android:textColor="#FFFFFF"
             android:padding="12dp"
-            android:layout_marginBottom="32dp" />
+            android:text="Mulai"
+            android:textColor="#2F2F2F" />
 
         <!-- Bottom Illustrations -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/left_image"
@@ -117,8 +121,8 @@
                 android:id="@+id/right_image"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:src="@drawable/gambar3"
-                android:layout_marginStart="16dp" />
+                android:layout_marginStart="100dp"
+                android:src="@drawable/gambar3" />
 
         </LinearLayout>
     </LinearLayout>

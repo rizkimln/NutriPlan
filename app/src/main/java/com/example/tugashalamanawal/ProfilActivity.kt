@@ -16,10 +16,10 @@ class ProfilActivity : AppCompatActivity() {
         val locationArrow: ImageView = findViewById(R.id.location_arrow)
 
         // Navigate to Edit Profil Page
-        editButton.setOnClickListener {
-            val intent = Intent(this, EditProfilActivity::class.java)
-            startActivity(intent)
-        }
+//        editButton.setOnClickListener {
+//            val intent = Intent(this, EditProfilActivity::class.java)
+//            startActivity(intent)
+//        }
 
 //        // Navigate to Lokasi Page when clicking "Lokasi" or the arrow
 //        val navigateToLokasi = {

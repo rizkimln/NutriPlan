@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -14,10 +14,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TugasHalamanawal"
         tools:targetApi="31">
-
-        <!-- Aktivitas lainnya -->
+        <activity
+            android:name=".RecipeMenuActivity"
+            android:exported="true" >
+        </activity>
+        <activity
+            android:name=".ItemClassOnline2"
+            android:exported="false" />
+        <activity
+            android:name=".ProfilUser"
+            android:exported="false" />
+        <activity
+            android:name=".LokasiActivity"
+            android:exported="true" />
+        <activity
+            android:name=".DataBulking"
+            android:exported="false" /> <!-- Aktivitas lainnya -->
         <activity
             android:name=".DataDiet"
+            android:exported="false" />
+        <activity
+            android:name=".EdiProfilActivity"
             android:exported="false" />
         <activity
             android:name=".Bulking"
@@ -39,19 +56,16 @@
             android:exported="false" />
         <activity
             android:name=".NutriChat"
-            android:exported="false" />
-
-        <!-- Login sebagai halaman awal -->
+            android:exported="false" /> <!-- Login sebagai halaman awal -->
         <activity
             android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <!-- MainActivity tanpa intent-filter -->
+        </activity> <!-- MainActivity tanpa intent-filter -->
         <activity
             android:name=".MainActivity"
             android:exported="true" />
