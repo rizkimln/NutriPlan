@@ -1,4 +1,4 @@
-package com.example.nutriplan
+package com.example.tugashalamanawal
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,12 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tugashalamanawal.R
+import com.example.tugashalamanawal.Recipe
+import com.example.tugashalamanawal.RecipeAdapter
 import com.example.tugashalamanawal.RecipeDetailActivity
 
-data class Recipe(
-    val name: String,
-    val imageResource: Int // Drawable resource ID
-)
 
 class RecipeMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

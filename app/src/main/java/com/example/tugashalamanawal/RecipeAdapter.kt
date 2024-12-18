@@ -1,4 +1,4 @@
-package com.example.nutriplan
+package com.example.tugashalamanawal
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tugashalamanawal.R
 
 class RecipeAdapter(
     private val recipeList: List<Recipe>,

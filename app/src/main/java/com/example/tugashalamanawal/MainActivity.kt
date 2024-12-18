@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         resepMakanan.setOnClickListener{
-            val intent = Intent(this,RecipeMenuActivity::class.java)
+            val intent = Intent(this, RecipeMenuActivity::class.java)
             startActivity(intent)
         }
 

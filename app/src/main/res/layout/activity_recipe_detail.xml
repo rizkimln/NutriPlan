@@ -1,22 +1,23 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/recipeImage"
+    <EditText
+        android:id="@+id/new_address_input"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
-
-    <TextView
-        android:id="@+id/recipeTitle"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recipe Title"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginTop="16dp" />
+        android:hint="Masukkan alamat"
+        android:textColorHint="@android:color/darker_gray" />
 
+    <Button
+        android:id="@+id/save_address_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Simpan"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/blue" />
 </LinearLayout>
