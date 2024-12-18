@@ -8,7 +8,7 @@
     <string name="JudulLayanan">LAYANAN</string>
     <string name="Redegistrasi">registrasi</string>
     <string name="Username">username\n</string>
-    <string name="Email">email</string>
+    <string name="Email">Email</string>
     <string name="Password">password</string>
     <string name="Masuk">masuk\n</string>
     <string name="Welcome">welcome\n</string>
@@ -49,5 +49,10 @@
     <string name="NamaErika_navesya">Erika Navesya</string>
     <string name="erika_navesya">Erika Navesya</string>
     <string name="erikanavesya_gmail_com">erikanavesya@gmail.com</string>
+    <string name="selamat_datang">Selamat Datang !</string>
+    <string name="masuk_ke_akun_anda">Masuk ke akun anda</string>
+    <string name="masukkan_email">Masukkan email</string>
+    <string name="kata_sandi">Kata Sandi</string>
+    <string name="masukkan_kata_sandi">Masukkan Kata Sandi</string>
 
 </resources>
