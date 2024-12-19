@@ -85,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                     val name = document.getString("name") ?: "Unknown Gym"
                     val email = document.getString("email") ?: "Unknown Email"
                     val contact = document.getString("contact") ?: "Unknown Contact" // Tambahkan pengambilan contact
-                    val image = R.drawable.beef_yakiniku // Gambar statis
+                    val image = R.drawable.gambar_class_online // Gambar statis
 
                     // Gunakan gambar statis secara langsung
                     gymList.add(Gym(displayName, image, name, email, contact))
