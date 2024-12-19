@@ -25,7 +25,7 @@ class GymAdapter(
     override fun onBindViewHolder(holder: GymViewHolder, position: Int) {
         val gym = gymList[position]
         holder.imgGym.setImageResource(gym.imageResource)
-        holder.txtGymName.text = gym.name
+        holder.txtGymName.text = gym.displayName
 
         // Handle klik item
         holder.itemView.setOnClickListener {

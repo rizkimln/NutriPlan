@@ -5,34 +5,25 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tugashalamanawal.R
-import com.example.tugashalamanawal.Recipe
-import com.example.tugashalamanawal.RecipeAdapter
-import com.example.tugashalamanawal.RecipeDetailActivity
+import com.google.firebase.firestore.FirebaseFirestore
+import android.widget.Toast
 
+class   RecipeMenuActivity : AppCompatActivity() {
 
-class RecipeMenuActivity : AppCompatActivity() {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var recipeAdapter: RecipeAdapter
+    private val recipeList = mutableListOf<Recipe>() // List dinamis untuk menyimpan data
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recipe_menu)
 
-        // List of recipes
-        val recipes = listOf(
-            Recipe("Steak Daging Sapi", R.drawable.beef_steak),
-            Recipe("Brokoli Sapi", R.drawable.beef_brokoli),
-            Recipe("Bulgogi Daging Sapi", R.drawable.beef_bulgogi),
-            Recipe("Burger Daging Sapi", R.drawable.beef_burger),
-            Recipe("Bakso Daging Sapi", R.drawable.beef_meatbowl),
-            Recipe("Sate Daging Sapi", R.drawable.beef_sate),
-            Recipe("Teriyaki Daging Sapi", R.drawable.beef_teriyaki),
-            Recipe("Wrap Daging Sapi", R.drawable.beef_wrap),
-            Recipe("Yakiniku Daging Sapi", R.drawable.beef_yakiniku)
-        )
-
-        // RecyclerView setup
-        val recyclerView: RecyclerView = findViewById(R.id.recipeRecyclerView)
+        // Inisialisasi RecyclerView
+        recyclerView = findViewById(R.id.recipeRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = RecipeAdapter(recipes) { selectedRecipe ->
+
+        // Adapter kosong saat ini
+        recipeAdapter = RecipeAdapter(recipeList) { selectedRecipe ->
             // Launch RecipeDetailActivity and pass data
             val intent = Intent(this, RecipeDetailActivity::class.java).apply {
                 putExtra("RECIPE_NAME", selectedRecipe.name)
@@ -40,5 +31,30 @@ class RecipeMenuActivity : AppCompatActivity() {
             }
             startActivity(intent)
         }
+        recyclerView.adapter = recipeAdapter
+
+        // Ambil data dari Firestore
+        fetchRecipesFromFirestore()
+    }
+
+    private fun fetchRecipesFromFirestore() {
+        val db = FirebaseFirestore.getInstance()
+
+        db.collection("Menu") // Nama koleksi di Firestore
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val name = document.id // Menggunakan ID dokumen sebagai nama resep
+                    val imageName = document.getString("image") ?: "placeholder" // Nama gambar
+                    val resId = resources.getIdentifier(imageName, "drawable", packageName)
+
+                    // Tambahkan resep ke daftar
+                    recipeList.add(Recipe(name, resId))
+                }
+                recipeAdapter.notifyDataSetChanged() // Update RecyclerView
+            }
+            .addOnFailureListener { exception ->
+                Toast.makeText(this, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
+            }
     }
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Day Box -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/blue_background"
+        android:padding="12dp"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="5dp"
+        android:radius="8dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/textDay"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Hari ke X"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Image -->
+        <ImageView
+            android:id="@+id/imageFood"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_foreground"
+            android:contentDescription="Food Image"
+            android:background="@drawable/circle_background" />
+    </LinearLayout>
+
+    <!-- Selesai Indicator -->
+    <TextView
+        android:id="@+id/textSelesai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Selesai"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:background="#EAEAEA"
+        android:paddingVertical="4dp"
+        android:paddingHorizontal="8dp"
+        android:visibility="gone"
+        android:layout_marginBottom="10dp" />
+
+</LinearLayout>

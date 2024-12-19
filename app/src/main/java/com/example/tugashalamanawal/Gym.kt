@@ -1,6 +1,11 @@
 package com.example.tugashalamanawal
 
-data class  Gym(
+data class Gym(
+    val displayName: String,
+    val imageResource: Int,
     val name: String,
-    val imageResource: Int
+    val email: String,
+    val contact: String
 )
+
+
