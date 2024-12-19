@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/masuk_ke_akun_anda"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20dp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/black"
         android:hint="Masukkan email"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
@@ -71,7 +71,7 @@
         android:layout_width="344dp"
         android:layout_height="54dp"
         android:layout_marginTop="4dp"
-        android:backgroundTint="@color/grey"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:hint="@string/masukkan_kata_sandi"
         android:inputType="textPassword"
@@ -153,7 +153,7 @@
         app:layout_constraintHorizontal_bias="0.021"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        app:tint="@color/blue" />
 
     <ImageView
         android:id="@+id/imageView"
