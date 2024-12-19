@@ -32,7 +32,8 @@
             android:exported="false" /> <!-- Aktivitas lainnya -->
         <activity
             android:name=".DataDiet"
-            android:exported="false" />
+            android:exported="true" />
+
         <activity
             android:name=".EdiProfilActivity"
             android:exported="false" />

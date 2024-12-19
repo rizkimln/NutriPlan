@@ -14,10 +14,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
-        android:text="@string/Redegistrasi"
+        android:text="Registrasi"
         android:textColor="@color/black"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,22 +31,25 @@
         android:layout_marginTop="24dp"
         android:text="Username"
         android:textColor="@color/black"
-        android:textSize="17dp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        android:layout_marginStart="32dp" />
 
     <EditText
         android:id="@+id/editUsername"
-        android:layout_width="328dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/roundedcorner"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:hint="Masukkan Username"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/grey"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_label" />
 
     <!-- Email -->
@@ -54,24 +58,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/Email"
+        android:text="Email"
         android:textColor="@color/black"
-        android:textSize="17dp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/editUsername"
+        android:layout_marginStart="32dp" />
 
     <EditText
         android:id="@+id/editEmail"
-        android:layout_width="328dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/roundedcorner"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:hint="Masukkan Email"
+        android:backgroundTint="@color/grey"
         android:inputType="textEmailAddress"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <!-- Password -->
@@ -80,24 +88,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="@string/Password"
+        android:text="Password"
         android:textColor="@color/black"
-        android:textSize="17dp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/editEmail"
+        android:layout_marginStart="32dp" />
 
     <EditText
         android:id="@+id/editPassword"
-        android:layout_width="328dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/roundedcorner"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:hint="Masukkan Password"
+        android:backgroundTint="@color/grey"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <!-- Nama Lengkap -->
@@ -108,22 +120,25 @@
         android:layout_marginTop="16dp"
         android:text="Nama Lengkap"
         android:textColor="@color/black"
-        android:textSize="17dp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editPassword"
+        android:layout_marginStart="32dp" />
 
     <EditText
         android:id="@+id/editNamaLengkap"
-        android:layout_width="328dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/roundedcorner"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:hint="Masukkan Nama Lengkap"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:backgroundTint="@color/grey"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nama_lengkap_label" />
 
     <!-- Tanggal Lahir -->
@@ -134,33 +149,42 @@
         android:layout_marginTop="16dp"
         android:text="Tanggal Lahir"
         android:textColor="@color/black"
-        android:textSize="17dp"
+        android:textSize="17sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNamaLengkap" />
+        app:layout_constraintTop_toBottomOf="@+id/editNamaLengkap"
+        android:layout_marginStart="32dp" />
 
     <EditText
         android:id="@+id/editTanggalLahir"
-        android:layout_width="328dp"
+        android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/roundedcorner"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
         android:hint="Masukkan Tanggal Lahir (yyyy-MM-dd)"
+        android:backgroundTint="@color/grey"
         android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tanggal_lahir_label" />
 
     <!-- Tombol Registrasi -->
     <Button
         android:id="@+id/btnMasuk"
-        android:layout_width="327dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="16dp"
-        android:text="@string/Masuk"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/blue"
+        android:text="Registrasi"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTanggalLahir" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
