@@ -2,6 +2,7 @@ package com.example.tugashalamanawal
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -23,11 +24,17 @@ class RecipeDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_detail)
 
+        // Inisialisasi Views
         imageView = findViewById(R.id.recipeImage)
         descriptionText = findViewById(R.id.recipeDescription)
         ingredientsRecyclerView = findViewById(R.id.ingredientsRecyclerView)
         stepsRecyclerView = findViewById(R.id.stepsRecyclerView)
 
+        // Setel Nested Scrolling agar RecyclerView tidak scroll secara independen
+        ingredientsRecyclerView.isNestedScrollingEnabled = false
+        stepsRecyclerView.isNestedScrollingEnabled = false
+
+        // Ambil data dari intent
         val recipeName = intent.getStringExtra("RECIPE_NAME")
         val recipeImage = intent.getIntExtra("RECIPE_IMAGE", 0)
 
@@ -46,6 +53,7 @@ class RecipeDetailActivity : AppCompatActivity() {
         }
     }
 
+
     private fun fetchRecipeDetails(recipeName: String) {
         db.collection("Menu")
             .document(recipeName)
@@ -59,9 +67,20 @@ class RecipeDetailActivity : AppCompatActivity() {
                     ingredientsRecyclerView.layoutManager = LinearLayoutManager(this)
                     ingredientsRecyclerView.adapter = TextListAdapter(ingredients)
 
-                    val steps = document.get("Cara Membuat") as? List<String> ?: emptyList()
+                    // Mengambil langkah dari kedua kemungkinan field
+                    val caraMembuat = document.get("Cara Membuat") as? List<String>
+                    val caraMemasak = document.get("Cara Memasak") as? List<String>
+
+                    // Prioritaskan langkah yang tersedia
+                    val steps = caraMembuat ?: caraMemasak ?: emptyList()
+
+                    // Menampilkan langkah-langkah
                     stepsRecyclerView.layoutManager = LinearLayoutManager(this)
                     stepsRecyclerView.adapter = TextListAdapter(steps)
+
+                    if (steps.isEmpty()) {
+                        Toast.makeText(this, "No steps available for this recipe.", Toast.LENGTH_SHORT).show()
+                    }
                 } else {
                     Log.e("Firestore", "Document not found")
                 }
@@ -70,4 +89,25 @@ class RecipeDetailActivity : AppCompatActivity() {
                 Toast.makeText(this, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
     }
+
+    private fun setRecyclerViewHeightBasedOnChildren(recyclerView: RecyclerView) {
+        val adapter = recyclerView.adapter ?: return
+        var totalHeight = 0
+        for (i in 0 until adapter.itemCount) {
+            val holder = adapter.createViewHolder(recyclerView, adapter.getItemViewType(i))
+            adapter.onBindViewHolder(holder, i)
+            holder.itemView.measure(
+                View.MeasureSpec.makeMeasureSpec(recyclerView.width, View.MeasureSpec.EXACTLY),
+                View.MeasureSpec.UNSPECIFIED
+            )
+            totalHeight += holder.itemView.measuredHeight
+        }
+
+        val params = recyclerView.layoutParams
+        params.height = totalHeight
+        recyclerView.layoutParams = params
+        recyclerView.requestLayout()
+    }
+
+
 }
