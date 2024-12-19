@@ -1,31 +1,79 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <TextView
-        android:id="@+id/textViewName"
+    <ImageView
+        android:id="@+id/imageView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Name: Loading..."
-        android:textSize="18sp" />
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="18dp"
+        android:text="Kontak Organisasi"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="17dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama : Loading..."
+            android:paddingBottom="12dp"
+            android:textColor="#233A66"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="143dp" />
+
+
 
     <TextView
         android:id="@+id/textViewContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact: Loading..."
-        android:textSize="18sp" />
+        android:text="Kontak : Loading.."
+        android:paddingBottom="12dp"
+        android:textColor="#233A66"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="29dp"
+        tools:layout_editor_absoluteY="143dp" />
 
-    <TextView
-        android:id="@+id/textViewEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email: Loading..."
-        android:textSize="18sp" />
-
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email : Loading..."
+            android:textColor="#233A66"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteX="29dp"
+            tools:layout_editor_absoluteY="143dp" />
+    </LinearLayout>
 </LinearLayout>
 
 
