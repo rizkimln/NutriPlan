@@ -56,5 +56,10 @@
     <string name="masukkan_kata_sandi">Masukkan Kata Sandi</string>
     <string name="email">Email:</string>
     <string name="name_loading">Name: Loading...</string>
+    <string name="deskripsi_resep">Deskripsi Resep</string>
+    <string name="bahan">Bahan</string>
+    <string name="langkah_langkah">Langkah-langkah</string>
+    <string name="recipe_image">Recipe Image</string>
+    <string name="recipe_name">Recipe Name</string>
 
 </resources>
