@@ -16,7 +16,7 @@ class   RecipeMenuActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.recipe_menu)
+        setContentView(R.layout.activity_recipe_menu)
 
         // Inisialisasi RecyclerView
         recyclerView = findViewById(R.id.recipeRecyclerView)
