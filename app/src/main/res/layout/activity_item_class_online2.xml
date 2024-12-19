@@ -9,14 +9,13 @@
 
 
 
-
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="68dp"
-        android:text="Contact Organizer"
+        android:text="Kontak Organisasi"
         android:textColor="#000000"
         android:textSize="26sp"
         android:textStyle="bold"
@@ -45,20 +44,20 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8">
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/textViewName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/erika_navesya"
+            android:text="Name:"
             android:textColor="#000000"
             android:textSize="18sp"
             tools:layout_editor_absoluteX="29dp"
             tools:layout_editor_absoluteY="119dp" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/erikanavesya_gmail_com"
+            android:text="Loading..."
             android:textColor="#233A66"
             android:textSize="14sp"
             tools:layout_editor_absoluteX="29dp"
@@ -81,17 +80,17 @@
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Erika Navesya"
+            android:text="Contact:"
             android:textColor="#000000"
             android:textSize="18sp"
             tools:layout_editor_absoluteX="29dp"
             tools:layout_editor_absoluteY="119dp" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/textViewContact"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="(510) 123-4567"
+            android:text="Loading.."
             android:textColor="#233A66"
             android:textSize="14sp"
             tools:layout_editor_absoluteX="29dp"
@@ -112,17 +111,17 @@
             android:id="@+id/textView13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/NamaErika_navesya"
+            android:text="@string/email"
             android:textColor="#000000"
             android:textSize="18sp"
             tools:layout_editor_absoluteX="29dp"
             tools:layout_editor_absoluteY="119dp" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/textViewEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="0812 2252 2559"
+            android:text="Loading..."
             android:textColor="#233A66"
             android:textSize="14sp"
             tools:layout_editor_absoluteX="29dp"
