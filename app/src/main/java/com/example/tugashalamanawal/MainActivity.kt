@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.LinearLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,22 +12,32 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var db: FirebaseFirestore
+    private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var recyclerViewNearestGym: RecyclerView
     private lateinit var gymAdapter: GymAdapter
     private lateinit var imageButton: ImageButton
     private lateinit var programBulking: LinearLayout
     private lateinit var programDivisitKalori: LinearLayout
     private lateinit var resepMakanan: LinearLayout
+    private lateinit var welcomeTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        // Inisialisasi Firebase
+        db = FirebaseFirestore.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        // Inisialisasi View
+        welcomeTextView = findViewById(R.id.welcomeTextView)
         imageButton = findViewById(R.id.imageButton)
         programBulking = findViewById(R.id.programBulking)
         programDivisitKalori = findViewById(R.id.programDivisitKalori)
@@ -38,6 +49,7 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        // Set listener untuk tombol
         programBulking.setOnClickListener {
             val intent = Intent(this, DataBulking::class.java)
             startActivity(intent)
@@ -58,7 +70,33 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        // Muat nama pengguna
+        loadUserName()
+
+        // Konfigurasi RecyclerView
         recyclerViewCategory()
+    }
+
+    private fun loadUserName() {
+        val userId = firebaseAuth.currentUser?.uid
+        if (userId != null) {
+            db.collection("users").document(userId)
+                .get()
+                .addOnSuccessListener { document ->
+                    if (document.exists()) {
+                        val username = document.getString("username") ?: "User"
+                        welcomeTextView.text = "Hallo $username"
+                    } else {
+                        welcomeTextView.text = "Hallo"
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(this, "Gagal memuat nama pengguna: ${exception.message}", Toast.LENGTH_SHORT).show()
+                    welcomeTextView.text = "Hallo"
+                }
+        } else {
+            welcomeTextView.text = "Hallo"
+        }
     }
 
     private fun recyclerViewCategory() {
@@ -96,5 +134,4 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed to load gyms: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
     }
-
 }

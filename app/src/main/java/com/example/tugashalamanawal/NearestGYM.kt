@@ -30,18 +30,22 @@ class NearestGYM : AppCompatActivity() {
 
     private fun fetchGymDetails(gymName: String?) {
         db.collection("gyms")
-            .whereEqualTo("name", gymName) // Gunakan field "name" sebagai parameter pencarian
+            .whereEqualTo("name", gymName)
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
-                    // Tampilkan detail dari Firestore
-                    textViewName.text = "Name: ${document.getString("name")}"
-                    textViewContact.text = "Contact: ${document.getString("contact")}"
-                    textViewEmail.text = "Email: ${document.getString("email")}"
+                    // Hanya tampilkan data tanpa label
+                    textViewName.text = document.getString("name") // Hanya menampilkan "jajang"
+                    textViewContact.text = document.getString("contact") // Hanya menampilkan "897"
+                    textViewEmail.text = document.getString("email") // Hanya menampilkan "@hhaoshd"
                 }
             }
             .addOnFailureListener { exception ->
-                textViewName.text = "Error: ${exception.message}" // Tampilkan error jika gagal
+                // Tetap kosong jika terjadi error
+                textViewName.text = ""
+                textViewContact.text = ""
+                textViewEmail.text = ""
             }
     }
+
 }

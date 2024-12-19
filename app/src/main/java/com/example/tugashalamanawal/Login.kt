@@ -2,7 +2,7 @@ package com.example.tugashalamanawal
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -11,15 +11,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 
 class Login : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
-    private lateinit var usernameuser : EditText
-    private lateinit var emailuser : EditText
-    private lateinit var passworduser : EditText
-    private lateinit var battonmasuk : Button
-    private lateinit var battonregistrasi : Button
+    private lateinit var emailuser: EditText
+    private lateinit var passworduser: EditText
+    private lateinit var battonmasuk: Button
+    private lateinit var battonregistrasi: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,32 +39,70 @@ class Login : AppCompatActivity() {
             insets
         }
 
+        // Tombol registrasi
         battonregistrasi.setOnClickListener {
-            // Intent untuk membuka BulkingActivity
             val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }
 
-        battonmasuk.setOnClickListener(View.OnClickListener {
+        // Tombol login
+        battonmasuk.setOnClickListener {
             val email = emailuser.text.toString().trim()
             val password = passworduser.text.toString().trim()
 
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(applicationContext, "ga boleh kosong", Toast.LENGTH_SHORT).show()
-            } else {
-                firebaseAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) { // Periksa apakah autentikasi berhasil
-                            Toast.makeText(applicationContext, "berhasil", Toast.LENGTH_SHORT).show()
-                            startActivity(Intent(this, MainActivity::class.java))
+            // Pengecekan awal
+            if (email.isEmpty()) {
+                emailuser.error = "Email tidak boleh kosong."
+                return@setOnClickListener
+            }
+
+            if (password.isEmpty()) {
+                passworduser.error = "Password tidak boleh kosong."
+                return@setOnClickListener
+            }
+
+            if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                emailuser.error = "Format email tidak valid."
+                return@setOnClickListener
+            }
+
+            // Proses login
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        // Login berhasil
+                        Toast.makeText(applicationContext, "Berhasil masuk", Toast.LENGTH_SHORT).show()
+                        startActivity(Intent(this, MainActivity::class.java))
+                    } else {
+                        // Tangkap kesalahan login
+                        val exception = task.exception
+                        if (exception != null) {
+                            Log.e("FirebaseAuthError", "Exception class: ${exception::class.java}")
+                            Log.e("FirebaseAuthError", "Error message: ${exception.message}")
+
+                            when (exception) {
+                                is FirebaseAuthInvalidUserException -> {
+                                    // Email tidak ditemukan
+                                    emailuser.error = "Email tidak ditemukan. Silakan daftar terlebih dahulu."
+                                }
+                                is FirebaseAuthInvalidCredentialsException -> {
+                                    // Password salah
+                                    passworduser.error = "Password salah. Silakan coba lagi."
+                                }
+                                else -> {
+                                    // Kesalahan lainnya
+                                    Toast.makeText(
+                                        applicationContext,
+                                        exception.message ?: "Login gagal. Silakan coba lagi.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
                         } else {
-                            // Tangkap dan tampilkan error jika login gagal
-                            val errorMessage = task.exception?.message ?: "Login gagal"
-                            Toast.makeText(applicationContext, errorMessage, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "Login gagal. Kesalahan tidak diketahui.", Toast.LENGTH_SHORT).show()
                         }
                     }
-            }
-        })
-
+                }
+        }
     }
 }

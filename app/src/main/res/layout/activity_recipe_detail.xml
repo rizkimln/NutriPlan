@@ -19,12 +19,12 @@
             app:cardElevation="8dp"
             app:cardCornerRadius="16dp">
 
-        <ImageView
-            android:id="@+id/recipeImage"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:scaleType="centerCrop"
-            android:background="@color/white"/>
+            <ImageView
+                android:id="@+id/recipeImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@color/yellow"
+                android:scaleType="centerCrop" />
         </androidx.cardview.widget.CardView>
 
         <!-- Deskripsi Resep -->
@@ -33,52 +33,48 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
             android:text="@string/deskripsi_resep"
+            android:textColor="@color/black"
             android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@color/darkgrey"
-            android:background="@color/white"
-            android:padding="12dp"/>
+            android:textStyle="normal" />
 
         <!-- Title untuk Ingredients -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@color/yellow"
+            android:layout_marginTop="6dp"
+            android:padding="4dp"
             android:text="@string/bahan"
+            android:textColor="@color/yellow"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/blue"
-            android:padding="8dp" />
+            android:textStyle="bold" />
 
         <!-- RecyclerView untuk Ingredients -->
+
+        <!-- Title untuk Steps -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/ingredientsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:elevation="2dp"
             android:nestedScrollingEnabled="false" />
 
-        <!-- Title untuk Steps -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:background="@color/yellow"
+            android:layout_marginTop="10dp"
+            android:padding="4dp"
             android:text="@string/langkah_langkah"
+            android:textColor="@color/yellow"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/blue"
-            android:padding="8dp"/>
+            android:textStyle="bold" />
 
         <!-- RecyclerView untuk Steps -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/stepsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:elevation="2dp"
             android:nestedScrollingEnabled="false" />
 
