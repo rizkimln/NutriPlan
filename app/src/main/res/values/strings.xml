@@ -61,5 +61,6 @@
     <string name="langkah_langkah">Langkah-langkah</string>
     <string name="recipe_image">Recipe Image</string>
     <string name="recipe_name">Recipe Name</string>
-
+    <string name="kontak_penyelenggara">Kontak Penyelenggara</string>
+    <string name="nama">Nama:</string>
 </resources>
