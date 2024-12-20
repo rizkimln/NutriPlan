@@ -13,13 +13,14 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <!-- ImageView dengan clipToOutline -->
-        <ImageView
+        <!-- ImageView with rounded corners -->
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/imgGym"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/ddd" /> <!-- Membuat gambar mengikuti radius CardView -->
+            android:src="@drawable/ddd"
+            app:shapeAppearanceOverlay="@style/RoundedImageView" />
 
         <TextView
             android:id="@+id/txtGymName"
