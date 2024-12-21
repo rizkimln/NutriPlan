@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var programDivisitKalori: LinearLayout
     private lateinit var resepMakanan: LinearLayout
     private lateinit var welcomeTextView: TextView
+    private lateinit var kalkulatorBMI: LinearLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
         programBulking = findViewById(R.id.programBulking)
         programDivisitKalori = findViewById(R.id.programDivisitKalori)
         resepMakanan = findViewById(R.id.ResepMakanan)
+        kalkulatorBMI = findViewById(R.id.KalkulatorBMI)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -52,6 +54,11 @@ class MainActivity : AppCompatActivity() {
         // Set listener untuk tombol
         programBulking.setOnClickListener {
             val intent = Intent(this, DataBulking::class.java)
+            startActivity(intent)
+        }
+
+        kalkulatorBMI.setOnClickListener{
+            val intent = Intent(this,KalkulatorActivity::class.java)
             startActivity(intent)
         }
 
@@ -69,6 +76,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RecipeMenuActivity::class.java)
             startActivity(intent)
         }
+
+
 
         // Muat nama pengguna
         loadUserName()

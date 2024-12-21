@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Top Bar with Rounded Blue Background -->
+    <RelativeLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/rounded_background4">
+
+        <FrameLayout
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_gravity="center"
+                android:contentDescription="Back button"
+                android:src="@drawable/ic_back"
+                app:tint="@color/yellow" />
+
+        </FrameLayout>
+
+        <!-- Search Bar -->
+    </RelativeLayout>
+
+    <!-- Recipe List -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recipeRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/textView8"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:padding="8dp"
+        android:scrollbars="vertical" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/topBar"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="-25dp"
+        android:layout_marginEnd="35dp"
+        android:layout_weight="1"
+        android:background="@drawable/rounded_background_white"
+        android:gravity="center"
+        android:text="Latihan yang akan membuatmu menjadi yang kamu mau" />
+
+</RelativeLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,10 +10,11 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_height="0dp"
         android:gravity="center_horizontal"
-        tools:ignore="MissingConstraints">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <!-- Top Illustration -->
         <ImageView
@@ -43,58 +45,17 @@
             android:textColor="#000000"
             android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/input_age"
+        <Spinner
+            android:id="@+id/spinnerID"
             android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_height="50dp"
             android:background="@drawable/input_border"
-            android:hint=""
-            android:inputType="text"
-            android:minHeight="40dp"
-            android:padding="10dp" />
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="Tinggi Badan"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/input_height"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/input_border"
-            android:hint=""
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:padding="10dp" />
-
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="4dp"
-            android:text="Berat Badan"
-            android:textColor="#000000"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/input_weight"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/input_border"
-            android:hint=""
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:padding="10dp" />
+            android:spinnerMode="dropdown" />
 
         <!-- Start Button -->
+
         <Button
-            android:id="@+id/start_button"
+            android:id="@+id/btnSubmit"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginBottom="5dp"
@@ -102,6 +63,34 @@
             android:padding="12dp"
             android:text="Mulai"
             android:textColor="#2F2F2F" />
+
+        <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text="Pilih Jenis Kelamin:"
+            android:textColor="@color/black" />
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laki-Laki"
+                android:textColor="@color/blue" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Perempuan"
+                android:textColor="@color/blue" />
+        </RadioGroup>
 
         <!-- Bottom Illustrations -->
         <LinearLayout
@@ -123,7 +112,6 @@
                 android:layout_height="120dp"
                 android:layout_marginStart="100dp"
                 android:src="@drawable/gambar3" />
-
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

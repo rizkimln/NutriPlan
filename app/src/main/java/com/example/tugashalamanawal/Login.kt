@@ -85,10 +85,10 @@ class Login : AppCompatActivity() {
                                     // Email tidak ditemukan
                                     emailuser.error = "Email tidak ditemukan. Silakan daftar terlebih dahulu."
                                 }
-                                is FirebaseAuthInvalidCredentialsException -> {
-                                    // Password salah
-                                    passworduser.error = "Password salah. Silakan coba lagi."
-                                }
+//                                is FirebaseAuthInvalidCredentialsException -> {
+//                                    // Password salah
+//                                    passworduser.error = "Password salah. Silakan coba lagi."
+//                                }
                                 else -> {
                                     // Kesalahan lainnya
                                     Toast.makeText(
