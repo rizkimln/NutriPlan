@@ -1,64 +1,77 @@
 package com.example.tugashalamanawal
 
+import android.content.Intent
 import android.os.Bundle
-import android.widget.ImageView
-import android.widget.TextView
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 
 class misiHarian : AppCompatActivity() {
 
-    private lateinit var backButton: ImageView
-    private lateinit var tvHariData: TextView
     private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: BulkingAdapter
-    private val bulkingList = mutableListOf<BulkingItem>()
+    private lateinit var adapter: MisiHarianAdapter
+    private lateinit var db: FirebaseFirestore
+    private val dataList = mutableListOf<Map<String, Any>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_misi_harian)
 
-        // Inisialisasi Views
-        backButton = findViewById(R.id.backButton)
-        tvHariData = findViewById(R.id.textView8)
         recyclerView = findViewById(R.id.recipeRecyclerView)
+        db = FirebaseFirestore.getInstance()
 
-        // Dapatkan data dari intent
-        val documentNames = intent.getStringArrayListExtra("documentNames")
+        // Ambil data dari intent
+        val documentID = intent.getStringExtra("documentID")
+        val gender = intent.getStringExtra("gender")
 
-        if (!documentNames.isNullOrEmpty()) {
-            // Buat list item untuk RecyclerView
-            for (name in documentNames) {
-                bulkingList.add(
-                    BulkingItem(
-                        dayNumber = name, // Nama dokumen sebagai nama hari
-                        description = "Klik untuk melihat detail", // Placeholder deskripsi
-                        imageResource = R.drawable.ic_placeholder, // Gambar default
-                        isCompleted = false // Default belum selesai
-                    )
-                )
-            }
-
-            // Atur RecyclerView
-            recyclerView.layoutManager = LinearLayoutManager(this)
-            adapter = BulkingAdapter(bulkingList) { item ->
-                // Aksi klik pada item (opsional)
-                Toast.makeText(this, "Klik: ${item.dayNumber}", Toast.LENGTH_SHORT).show()
-            }
-            recyclerView.adapter = adapter
+        if (documentID != null && gender != null) {
+            loadData(documentID, gender)
         } else {
-            // Jika tidak ada data diterima
-            tvHariData.text = "Tidak ada data yang diterima."
+            Toast.makeText(this, "Data tidak ditemukan.", Toast.LENGTH_SHORT).show()
         }
+    }
 
-        // Tombol kembali
-        backButton.setOnClickListener {
-            finish()
-        }
+    private fun loadData(documentID: String, gender: String) {
+        db.collection("BMI")
+            .document(documentID)
+            .collection(gender)
+            .get()
+            .addOnSuccessListener { documents ->
+                for (document in documents) {
+                    val data = document.data.toMutableMap()
+                    data["dayNumber"] = document.id // Pastikan dayNumber ditambahkan
+                    dataList.add(data)
+                }
 
-        // Update judul halaman
-        tvHariData.text = "Misi Harian"
+                // Urutkan data berdasarkan angka yang ada di dalam `dayNumber`
+                dataList.sortBy { extractDayNumber(it["dayNumber"].toString()) }
+
+                // Atur RecyclerView
+                adapter = MisiHarianAdapter(dataList) { dayNumber, data ->
+                    navigateToDetail(dayNumber, data)
+                }
+                recyclerView.adapter = adapter
+                recyclerView.layoutManager = LinearLayoutManager(this)
+            }
+            .addOnFailureListener { e ->
+                Log.e("misiHarian", "Error loading data: ${e.message}")
+            }
+    }
+
+    // Fungsi untuk mengekstrak angka dari string `Hari ke X`
+    private fun extractDayNumber(dayNumber: String): Int {
+        return dayNumber.replace("[^\\d]".toRegex(), "").toIntOrNull() ?: 0
+    }
+
+
+
+    private fun navigateToDetail(dayNumber: String, data: Map<String, Any>) {
+        val intent = Intent(this, DetailBulking::class.java)
+        intent.putExtra("dayNumber", dayNumber)
+        intent.putExtra("data", HashMap(data)) // Kirim data detail
+        startActivity(intent)
     }
 }

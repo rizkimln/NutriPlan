@@ -16,7 +16,7 @@ class BulkingAdapter(
 
     class BulkingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textDay: TextView = itemView.findViewById(R.id.textDay)
-        val textDescription: TextView = itemView.findViewById(R.id.textDescription)
+//        val textDescription: TextView = itemView.findViewById(R.id.textDescription)
         val imageFood: ImageView = itemView.findViewById(R.id.imageFood)
         val textSelesai: TextView = itemView.findViewById(R.id.textSelesai)
     }
@@ -30,7 +30,7 @@ class BulkingAdapter(
     override fun onBindViewHolder(holder: BulkingViewHolder, position: Int) {
         val bulkingItem = bulkingList[position]
         holder.textDay.text = bulkingItem.dayNumber
-        holder.textDescription.text = bulkingItem.description
+//        holder.textDescription.text = bulkingItem.description
         holder.imageFood.setImageResource(bulkingItem.imageResource)
 
         if (bulkingItem.isCompleted) {

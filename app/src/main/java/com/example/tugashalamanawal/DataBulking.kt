@@ -100,11 +100,16 @@ class DataBulking : AppCompatActivity() {
                         documentNames.add(document.id) // Ambil nama dokumen (ID dokumen)
                     }
 
+                    Log.d("DataBulking", "Document Names: $documentNames") // Log dokumen yang ditemukan
+
                     // Kirim nama dokumen ke halaman berikutnya
                     val intent = Intent(this, misiHarian::class.java)
                     intent.putStringArrayListExtra("documentNames", ArrayList(documentNames))
+                    intent.putExtra("documentID", documentID)
+                    intent.putExtra("gender", gender)
                     startActivity(intent)
                 } else {
+                    Log.w("DataBulking", "No documents found in subcollection.")
                     Toast.makeText(this, "Tidak ada dokumen di subkoleksi.", Toast.LENGTH_SHORT).show()
                 }
             }
