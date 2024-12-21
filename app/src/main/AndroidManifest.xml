@@ -43,7 +43,9 @@
             android:exported="false" />
         <activity
             android:name=".Diet_under90kg"
-            android:exported="false" />
+            android:exported="false" />\
+        <activity android:name=".KalkulatorActivity"
+            android:exported="true"/>
         <activity
             android:name=".Diet_up90kg"
             android:exported="false" />
