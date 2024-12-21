@@ -27,10 +27,10 @@ class DataDiet : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().reference
 
         // Deklarasi elemen view
-        val inputAge = findViewById<EditText>(R.id.input_age)
+        val inputAge = findViewById<EditText>(R.id.etID)
         val inputHeight = findViewById<EditText>(R.id.input_height)
         val inputWeight = findViewById<EditText>(R.id.input_weight)
-        val startButton = findViewById<Button>(R.id.start_button)
+        val startButton = findViewById<Button>(R.id.btnSubmit)
 
         // Atur padding untuk elemen utama agar menyesuaikan dengan sistem bar
         val mainView = findViewById<View>(R.id.dataDiet)

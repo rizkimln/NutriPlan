@@ -15,9 +15,14 @@
         android:theme="@style/Theme.TugasHalamanawal"
         tools:targetApi="31">
         <activity
+            android:name=".KalkulatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".misiHarian"
+            android:exported="false" />
+        <activity
             android:name=".RecipeMenuActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".ItemClassOnline2"
             android:exported="false" />
@@ -25,16 +30,12 @@
         <activity
             android:name=".ProfilUser"
             android:exported="false" />
-
         <activity
             android:name=".DataBulking"
             android:exported="false" /> <!-- Aktivitas lainnya -->
         <activity
             android:name=".DataDiet"
             android:exported="true" />
-
-
-
         <activity
             android:name=".Register"
             android:exported="false" />
@@ -43,8 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".NutriChat"
-            android:exported="false" />
-        <!-- Login sebagai halaman awal -->
+            android:exported="false" /> <!-- Login sebagai halaman awal -->
         <activity
             android:name=".Login"
             android:exported="true">

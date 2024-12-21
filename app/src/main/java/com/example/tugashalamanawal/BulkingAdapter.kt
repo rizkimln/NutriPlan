@@ -7,11 +7,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class BulkingAdapter(private val bulkingList: List<BulkingItem>) :
-    RecyclerView.Adapter<BulkingAdapter.BulkingViewHolder>() {
+
+
+class BulkingAdapter(
+    private val bulkingList: List<BulkingItem>,
+    private val onItemClick: (BulkingItem) -> Unit
+) : RecyclerView.Adapter<BulkingAdapter.BulkingViewHolder>() {
 
     class BulkingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val textDay: TextView = itemView.findViewById(R.id.textDay)
+        val textDescription: TextView = itemView.findViewById(R.id.textDescription)
         val imageFood: ImageView = itemView.findViewById(R.id.imageFood)
         val textSelesai: TextView = itemView.findViewById(R.id.textSelesai)
     }
@@ -24,14 +29,18 @@ class BulkingAdapter(private val bulkingList: List<BulkingItem>) :
 
     override fun onBindViewHolder(holder: BulkingViewHolder, position: Int) {
         val bulkingItem = bulkingList[position]
-        holder.textDay.text = "Hari ke ${bulkingItem.dayNumber}"
+        holder.textDay.text = bulkingItem.dayNumber
+        holder.textDescription.text = bulkingItem.description
         holder.imageFood.setImageResource(bulkingItem.imageResource)
 
-        // Show or hide 'Selesai' indicator
         if (bulkingItem.isCompleted) {
             holder.textSelesai.visibility = View.VISIBLE
         } else {
             holder.textSelesai.visibility = View.GONE
+        }
+
+        holder.itemView.setOnClickListener {
+            onItemClick(bulkingItem)
         }
     }
 
