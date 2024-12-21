@@ -34,6 +34,10 @@
         <activity
             android:name=".DataDiet"
             android:exported="true" />
+        <activity android:name=".KalkulatorActivity"
+            android:exported="false"/>
+        <activity android:name=".misiHarian"
+            android:exported="false"/>
 
         <activity
             android:name=".EdiProfilActivity"
