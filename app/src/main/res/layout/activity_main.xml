@@ -152,7 +152,7 @@
                         android:layout_width="80dp"
                         android:layout_height="114dp"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/as1" />
+                        app:srcCompat="@drawable/Calculator" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -196,7 +196,7 @@
                         android:layout_height="114dp"
                         android:layout_gravity="center"
                         android:scaleType="centerInside"
-                        app:srcCompat="@drawable/lls2" />
+                        app:srcCompat="@drawable/Cooking" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -250,13 +250,13 @@
                         android:layout_height="114dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="0dp"
-                        app:srcCompat="@drawable/hgy1" />
+                        app:srcCompat="@drawable/Planner" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:gravity="center"
-                        android:text="Program    Bulking"
+                        android:text="Nutri\n Planner"
                         android:textColor="#2F2F2F"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -294,13 +294,13 @@
                         android:layout_height="114dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="0dp"
-                        app:srcCompat="@drawable/sder" />
+                        app:srcCompat="@drawable/Chatbot" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
                         android:gravity="center"
-                        android:text="Program Divisit Kalori"
+                        android:text="Nutri\nChat"
                         android:textColor="#2F2F2F"
                         android:textSize="16sp"
                         android:textStyle="bold" />
