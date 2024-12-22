@@ -41,9 +41,10 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:text="BMI anda"
+            android:text="Kategori BMI :"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spinnerID"
@@ -54,22 +55,14 @@
 
         <!-- Start Button -->
 
-        <Button
-            android:id="@+id/btnSubmit"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="5dp"
-            android:backgroundTint="#EBAB44"
-            android:padding="12dp"
-            android:text="Mulai"
-            android:textColor="#2F2F2F" />
-
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:text="Pilih Jenis Kelamin:"
-            android:textColor="@color/black" />
+            android:text="Jenis Kelamin :"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <RadioGroup
             android:id="@+id/rgGender"
@@ -93,6 +86,16 @@
         </RadioGroup>
 
         <!-- Bottom Illustrations -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="5dp"
+            android:backgroundTint="#EBAB44"
+            android:padding="12dp"
+            android:text="Mulai"
+            android:textColor="#2F2F2F" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
