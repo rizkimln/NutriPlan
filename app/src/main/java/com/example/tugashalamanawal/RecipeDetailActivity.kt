@@ -43,11 +43,11 @@ class RecipeDetailActivity : AppCompatActivity() {
         val recipeName = intent.getStringExtra("RECIPE_NAME")
         val recipeImage = intent.getIntExtra("RECIPE_IMAGE", 0)
 
-        if (recipeImage != 0) {
-            imageView.setImageResource(recipeImage)
-        } else {
-            Toast.makeText(this, "Invalid image resource ID", Toast.LENGTH_SHORT).show()
-        }
+//        if (recipeImage != 0) {
+//            imageView.setImageResource(recipeImage)
+//        } else {
+//            Toast.makeText(this, "Id image tidak ada", Toast.LENGTH_SHORT).show()
+//        }
 
         descriptionText.text = recipeName
 
