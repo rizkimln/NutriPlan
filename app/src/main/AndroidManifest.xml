@@ -28,9 +28,6 @@
             android:name=".ProfilUser"
             android:exported="false" />
         <activity
-            android:name=".LokasiActivity"
-            android:exported="true" />
-        <activity
             android:name=".DataBulking"
             android:exported="false" /> <!-- Aktivitas lainnya -->
         <activity
@@ -44,21 +41,6 @@
             android:exported="false" />
         <activity
             android:name=".DetailBulking"
-            android:exported="false" />
-        <activity
-            android:name=".EdiProfilActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Bulking"
-            android:exported="false" />
-        <activity
-            android:name=".Diet_under90kg"
-            android:exported="false" />
-        <activity
-            android:name=".Diet_up90kg"
-            android:exported="false" />
-        <activity
-            android:name=".moza_cute"
             android:exported="false" />
         <activity
             android:name=".Register"
