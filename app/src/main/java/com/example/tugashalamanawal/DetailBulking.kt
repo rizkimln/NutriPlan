@@ -37,11 +37,25 @@ class DetailBulking : AppCompatActivity() {
         }
 
         data?.let {
-            sarapanContent.text = (it["Sarapan"] as? List<*>)?.joinToString("\n") ?: "Tidak ada data"
-            makanSiangContent.text = (it["Makan Siang"] as? List<*>)?.joinToString("\n") ?: "Tidak ada data"
-            makanMalamContent.text = (it["Makan Malam"] as? List<*>)?.joinToString("\n") ?: "Tidak ada data"
-            cemilanContent.text = (it["Cemilan"] as? List<*>)?.joinToString("\n") ?: "Tidak ada data"
-            olahragaContent.text = (it["Olahraga"] as? List<*>)?.joinToString("\n") ?: "Tidak ada data"
-        } ?: Log.e("DetailBulking", "Data tidak ditemukan.")
+            sarapanContent.text = (it["Sarapan"] as? List<*>)?.joinToString("\n") { item ->
+                "• $item"
+            } ?: "Tidak ada data"
+
+            makanSiangContent.text = (it["Makan Siang"] as? List<*>)?.joinToString("\n") { item ->
+                "• $item"
+            } ?: "Tidak ada data"
+
+            makanMalamContent.text = (it["Makan Malam"] as? List<*>)?.joinToString("\n") { item ->
+                "• $item"
+            } ?: "Tidak ada data"
+
+            cemilanContent.text = (it["Cemilan"] as? List<*>)?.joinToString("\n") { item ->
+                "• $item"
+            } ?: "Tidak ada data"
+
+            olahragaContent.text = (it["Olahraga"] as? List<*>)?.joinToString("\n") { item ->
+                "• $item"
+            } ?: "Tidak ada data"
+        }
     }
 }

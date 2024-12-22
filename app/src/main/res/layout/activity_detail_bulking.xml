@@ -17,7 +17,7 @@
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="100dp"
-        android:background="@color/blue"
+        android:background="@drawable/rounded_background_blue"
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,7 +29,8 @@
             android:layout_height="32dp"
             android:src="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/white" />
 
         <TextView
             android:id="@+id/headerTitle"
@@ -91,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="1 cangkir teh\nroti tawar dan keju"
+                android:text="• 1 cangkir teh\n• roti tawar dan keju"
                 android:textColor="@android:color/black"
                 android:textSize="14sp" />
         </LinearLayout>
