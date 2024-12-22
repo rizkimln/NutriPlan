@@ -15,11 +15,14 @@
         android:theme="@style/Theme.TugasHalamanawal"
         tools:targetApi="31">
         <activity
+            android:name=".OnboardingActivity"
+            android:exported="false" />
+        <activity
             android:name=".NutriChatActivity"
             android:exported="false" />
         <activity
             android:name=".RecipeMenuActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ItemClassOnline2"
             android:exported="false" />
