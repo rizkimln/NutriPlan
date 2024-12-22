@@ -78,7 +78,7 @@
         android:id="@+id/btnDaftar"
         android:layout_width="0dp"
         android:layout_height="52dp"
-        android:text="Daftar"
+        android:text="@string/registrasi"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="@color/yellow"
