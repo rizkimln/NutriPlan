@@ -16,11 +16,15 @@ class KalkulatorActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_kalkulator)
+
+        // Handle edge-to-edge display
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.KalkulatorBMI)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Initialize UI components
         val etHeight = findViewById<EditText>(R.id.etHeight)
         val etWeight = findViewById<EditText>(R.id.etWeight)
         val etAge = findViewById<EditText>(R.id.etAge)
@@ -28,6 +32,7 @@ class KalkulatorActivity : AppCompatActivity() {
         val btnCalculate = findViewById<Button>(R.id.btnCalculate)
         val tvResult = findViewById<TextView>(R.id.tvResult)
 
+        // Set up button click listener
         btnCalculate.setOnClickListener {
             val heightText = etHeight.text.toString()
             val weightText = etWeight.text.toString()
@@ -47,10 +52,17 @@ class KalkulatorActivity : AppCompatActivity() {
                 // BMI Calculation
                 val bmi = weight / (height * height)
 
-                // Display BMI with gender and age info
+                // Determine BMI Category and Warning
+                val warning = when {
+                    bmi < 18.5 -> "Berat badan kurang"
+                    bmi in 18.5..24.9 -> "Berat badan normal"
+                    else -> "Berat badan berlebih"
+                }
+
+                // Display BMI with gender, age info, and warning
                 tvResult.text = String.format(
-                    "Your BMI is: %.2f\nGender: %s\nAge: %d years",
-                    bmi, gender, age
+                    "Your BMI is: %.2f\nGender: %s\nAge: %d years\nWarning: %s",
+                    bmi, gender, age, warning
                 )
             } else {
                 tvResult.text = "Please fill all fields and select gender."
