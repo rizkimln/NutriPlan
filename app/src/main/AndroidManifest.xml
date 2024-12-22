@@ -38,6 +38,8 @@
             android:exported="false"/>
         <activity android:name=".misiHarian"
             android:exported="false"/>
+        <activity android:name=".DetailBulking"
+            android:exported="false"/>
 
         <activity
             android:name=".EdiProfilActivity"
