@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
@@ -26,12 +27,18 @@ class DataBulking : AppCompatActivity() {
         setContentView(R.layout.activity_data_bulking)
 
         // Inisialisasi Firebase dan komponen UI
+        val backButton = findViewById<ImageView>(R.id.backButton)
         db = FirebaseFirestore.getInstance()
         btnSubmit = findViewById(R.id.btnSubmit)
         rgGender = findViewById(R.id.rgGender)
         rbMale = findViewById(R.id.rbMale)
         rbFemale = findViewById(R.id.rbFemale)
         spinnerID = findViewById(R.id.spinnerID)
+
+
+        backButton.setOnClickListener {
+            finish()
+        }
 
         // Load data untuk Spinner dari Firebase
         loadSpinnerData()
