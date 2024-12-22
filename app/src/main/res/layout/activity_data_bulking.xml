@@ -41,7 +41,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
-            android:text="Umur"
+            android:text="BMI anda"
             android:textColor="#000000"
             android:textSize="16sp" />
 
