@@ -15,9 +15,14 @@
         android:theme="@style/Theme.TugasHalamanawal"
         tools:targetApi="31">
         <activity
+            android:name=".OnboardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NutriChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".RecipeMenuActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".ItemClassOnline2"
             android:exported="false" />
@@ -26,35 +31,19 @@
             android:name=".ProfilUser"
             android:exported="false" />
         <activity
-            android:name=".LokasiActivity"
-            android:exported="true" />
-        <activity
             android:name=".DataBulking"
             android:exported="false" /> <!-- Aktivitas lainnya -->
         <activity
             android:name=".DataDiet"
             android:exported="true" />
-        <activity android:name=".KalkulatorActivity"
-            android:exported="false"/>
-        <activity android:name=".misiHarian"
-            android:exported="false"/>
-        <activity android:name=".DetailBulking"
-            android:exported="false"/>
-
         <activity
-            android:name=".EdiProfilActivity"
+            android:name=".KalkulatorActivity"
             android:exported="false" />
         <activity
-            android:name=".Bulking"
+            android:name=".misiHarian"
             android:exported="false" />
         <activity
-            android:name=".Diet_under90kg"
-            android:exported="false" />
-        <activity
-            android:name=".Diet_up90kg"
-            android:exported="false" />
-        <activity
-            android:name=".moza_cute"
+            android:name=".DetailBulking"
             android:exported="false" />
         <activity
             android:name=".Register"

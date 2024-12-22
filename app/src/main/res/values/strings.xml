@@ -68,4 +68,6 @@
         <item></item>
         <item></item>
     </string-array>
+    <string name="chat_scroll_description">This is the chat area. Conversations will appear here.</string>
+
 </resources>
