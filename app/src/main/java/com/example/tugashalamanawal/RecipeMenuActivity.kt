@@ -2,19 +2,21 @@ package com.example.tugashalamanawal
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import android.widget.EditText
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.Toast
 
 class RecipeMenuActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var searchField: EditText
+    private lateinit var backButton: ImageView
     private lateinit var recipeAdapter: RecipeAdapter
     private val recipeList = mutableListOf<Recipe>() // Original recipe list
     private val filteredRecipeList = mutableListOf<Recipe>() // Filtered list for display
@@ -23,14 +25,14 @@ class RecipeMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_menu)
 
-        // Initialize RecyclerView and Search Field
+        // Initialize Views
         recyclerView = findViewById(R.id.recipeRecyclerView)
         searchField = findViewById(R.id.searchField)
+        backButton = findViewById(R.id.backButton) // Ensure this matches your XML ID
 
         // Set up RecyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
         recipeAdapter = RecipeAdapter(filteredRecipeList) { selectedRecipe ->
-            // Launch RecipeDetailActivity and pass data
             val intent = Intent(this, RecipeDetailActivity::class.java).apply {
                 putExtra("RECIPE_NAME", selectedRecipe.name)
                 putExtra("RECIPE_IMAGE", selectedRecipe.imageResource)
@@ -42,7 +44,14 @@ class RecipeMenuActivity : AppCompatActivity() {
         // Fetch data from Firestore
         fetchRecipesFromFirestore()
 
-        // Set up search functionality
+        // Activate back button
+        backButton.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        // Search functionality
         searchField.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -55,7 +64,7 @@ class RecipeMenuActivity : AppCompatActivity() {
     private fun fetchRecipesFromFirestore() {
         val db = FirebaseFirestore.getInstance()
 
-        db.collection("Menu") // Firestore collection name
+        db.collection("Menu")
             .get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
@@ -63,10 +72,9 @@ class RecipeMenuActivity : AppCompatActivity() {
                     val imageName = document.getString("image") ?: "placeholder"
                     val resId = resources.getIdentifier(imageName, "drawable", packageName)
 
-                    // Add recipe to the main list
                     recipeList.add(Recipe(name, resId))
                 }
-                filteredRecipeList.addAll(recipeList) // Initially display all recipes
+                filteredRecipeList.addAll(recipeList)
                 recipeAdapter.notifyDataSetChanged()
             }
             .addOnFailureListener { exception ->
@@ -77,7 +85,7 @@ class RecipeMenuActivity : AppCompatActivity() {
     private fun filterRecipes(query: String) {
         filteredRecipeList.clear()
         if (query.isEmpty()) {
-            filteredRecipeList.addAll(recipeList) // Show all recipes if query is empty
+            filteredRecipeList.addAll(recipeList)
         } else {
             val lowerCaseQuery = query.lowercase()
             filteredRecipeList.addAll(

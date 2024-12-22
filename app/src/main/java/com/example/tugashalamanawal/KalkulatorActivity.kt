@@ -1,8 +1,10 @@
 package com.example.tugashalamanawal
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -31,6 +33,12 @@ class KalkulatorActivity : AppCompatActivity() {
         val rgGender = findViewById<RadioGroup>(R.id.rgGender)
         val btnCalculate = findViewById<Button>(R.id.btnCalculate)
         val tvResult = findViewById<TextView>(R.id.tvResult)
+        val backButton = findViewById<ImageView>(R.id.backButton)
+
+        // Set up back button functionality
+        backButton.setOnClickListener {
+            finish() // Close the current activity and return to the previous one
+        }
 
         // Set up button click listener
         btnCalculate.setOnClickListener {

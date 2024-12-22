@@ -1,8 +1,6 @@
 package com.example.tugashalamanawal
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -13,6 +11,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 class RecipeDetailActivity : AppCompatActivity() {
 
+    private lateinit var backButton: ImageView
     private lateinit var imageView: ImageView
     private lateinit var descriptionText: TextView
     private lateinit var ingredientsRecyclerView: RecyclerView
@@ -24,24 +23,30 @@ class RecipeDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipe_detail)
 
-        // Inisialisasi Views
+        // Initialize Views
+        backButton = findViewById(R.id.backButton)
         imageView = findViewById(R.id.recipeImage)
         descriptionText = findViewById(R.id.recipeDescription)
         ingredientsRecyclerView = findViewById(R.id.ingredientsRecyclerView)
         stepsRecyclerView = findViewById(R.id.stepsRecyclerView)
 
-        // Setel Nested Scrolling agar RecyclerView tidak scroll secara independen
+        // Back Button Functionality
+        backButton.setOnClickListener {
+            finish() // Close the current activity and go back to the previous screen
+        }
+
+        // Set Nested Scrolling for RecyclerView
         ingredientsRecyclerView.isNestedScrollingEnabled = false
         stepsRecyclerView.isNestedScrollingEnabled = false
 
-        // Ambil data dari intent
+        // Fetch Recipe Details
         val recipeName = intent.getStringExtra("RECIPE_NAME")
         val recipeImage = intent.getIntExtra("RECIPE_IMAGE", 0)
 
         if (recipeImage != 0) {
             imageView.setImageResource(recipeImage)
         } else {
-            Log.e("RecipeDetail", "Invalid image resource ID")
+            Toast.makeText(this, "Invalid image resource ID", Toast.LENGTH_SHORT).show()
         }
 
         descriptionText.text = recipeName
@@ -52,7 +57,6 @@ class RecipeDetailActivity : AppCompatActivity() {
             Toast.makeText(this, "Recipe name is missing!", Toast.LENGTH_SHORT).show()
         }
     }
-
 
     private fun fetchRecipeDetails(recipeName: String) {
         db.collection("Menu")
@@ -67,14 +71,10 @@ class RecipeDetailActivity : AppCompatActivity() {
                     ingredientsRecyclerView.layoutManager = LinearLayoutManager(this)
                     ingredientsRecyclerView.adapter = TextListAdapter(ingredients)
 
-                    // Mengambil langkah dari kedua kemungkinan field
-                    val caraMembuat = document.get("Cara Membuat") as? List<String>
-                    val caraMemasak = document.get("Cara Memasak") as? List<String>
+                    val steps = document.get("Cara Membuat") as? List<String>
+                        ?: document.get("Cara Memasak") as? List<String>
+                        ?: emptyList()
 
-                    // Prioritaskan langkah yang tersedia
-                    val steps = caraMembuat ?: caraMemasak ?: emptyList()
-
-                    // Menampilkan langkah-langkah
                     stepsRecyclerView.layoutManager = LinearLayoutManager(this)
                     stepsRecyclerView.adapter = TextListAdapter(steps)
 
@@ -82,32 +82,11 @@ class RecipeDetailActivity : AppCompatActivity() {
                         Toast.makeText(this, "No steps available for this recipe.", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Log.e("Firestore", "Document not found")
+                    Toast.makeText(this, "Document not found", Toast.LENGTH_SHORT).show()
                 }
             }
             .addOnFailureListener { exception ->
                 Toast.makeText(this, "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
             }
     }
-
-    private fun setRecyclerViewHeightBasedOnChildren(recyclerView: RecyclerView) {
-        val adapter = recyclerView.adapter ?: return
-        var totalHeight = 0
-        for (i in 0 until adapter.itemCount) {
-            val holder = adapter.createViewHolder(recyclerView, adapter.getItemViewType(i))
-            adapter.onBindViewHolder(holder, i)
-            holder.itemView.measure(
-                View.MeasureSpec.makeMeasureSpec(recyclerView.width, View.MeasureSpec.EXACTLY),
-                View.MeasureSpec.UNSPECIFIED
-            )
-            totalHeight += holder.itemView.measuredHeight
-        }
-
-        val params = recyclerView.layoutParams
-        params.height = totalHeight
-        recyclerView.layoutParams = params
-        recyclerView.requestLayout()
-    }
-
-
 }
