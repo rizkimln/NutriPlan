@@ -30,11 +30,12 @@
 
     <!-- Gambar Resep -->
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardImg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="16dp">
+            app:cardCornerRadius="16dp"
+            app:cardElevation="8dp">
 
             <ImageView
                 android:id="@+id/recipeImage"
