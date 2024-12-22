@@ -14,9 +14,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TugasHalamanawal"
         tools:targetApi="31">
+
         <activity
             android:name=".OnboardingActivity"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".NutriChatActivity"
             android:exported="false" />
@@ -32,10 +39,7 @@
             android:exported="false" />
         <activity
             android:name=".DataBulking"
-            android:exported="false" /> <!-- Aktivitas lainnya -->
-        <activity
-            android:name=".DataDiet"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".KalkulatorActivity"
             android:exported="false" />
@@ -53,16 +57,10 @@
             android:exported="false" />
         <activity
             android:name=".NutriChat"
-            android:exported="false" /> <!-- Login sebagai halaman awal -->
+            android:exported="false" />
         <activity
             android:name=".Login"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- MainActivity tanpa intent-filter -->
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true" />
