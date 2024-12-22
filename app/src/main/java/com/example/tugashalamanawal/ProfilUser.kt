@@ -1,7 +1,10 @@
 package com.example.tugashalamanawal
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -15,7 +18,8 @@ class ProfilUser : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
-
+    private lateinit var backButton: ImageView
+    private lateinit var logoutButton: LinearLayout
     private lateinit var profileName: TextView
     private lateinit var profileEmail: TextView
     private lateinit var namaLengkapInput: TextView
@@ -35,6 +39,18 @@ class ProfilUser : AppCompatActivity() {
         // Inisialisasi Firebase
         firebaseAuth = FirebaseAuth.getInstance()
         firestore = FirebaseFirestore.getInstance()
+        backButton = findViewById(R.id.backButton)
+
+
+        backButton.setOnClickListener {
+            finish()
+        }
+        logoutButton = findViewById(R.id.logout_setting)
+        logoutButton.setOnClickListener {
+            val intent = Intent(this, OnboardingActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
 
         val userId = firebaseAuth.currentUser?.uid
         if (userId != null) {
