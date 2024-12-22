@@ -3,6 +3,7 @@ package com.example.tugashalamanawal
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -26,7 +27,11 @@ class misiHarian : AppCompatActivity() {
         // Ambil data dari intent
         val documentID = intent.getStringExtra("documentID")
         val gender = intent.getStringExtra("gender")
+        val backButton = findViewById<ImageView>(R.id.backButton)
 
+        backButton.setOnClickListener {
+            finish()
+        }
         if (documentID != null && gender != null) {
             loadData(documentID, gender)
         } else {
