@@ -15,9 +15,11 @@
         android:theme="@style/Theme.TugasHalamanawal"
         tools:targetApi="31">
         <activity
+            android:name=".NutriChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".RecipeMenuActivity"
-            android:exported="true" >
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".ItemClassOnline2"
             android:exported="false" />
@@ -34,13 +36,15 @@
         <activity
             android:name=".DataDiet"
             android:exported="true" />
-        <activity android:name=".KalkulatorActivity"
-            android:exported="false"/>
-        <activity android:name=".misiHarian"
-            android:exported="false"/>
-        <activity android:name=".DetailBulking"
-            android:exported="false"/>
-
+        <activity
+            android:name=".KalkulatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".misiHarian"
+            android:exported="false" />
+        <activity
+            android:name=".DetailBulking"
+            android:exported="false" />
         <activity
             android:name=".EdiProfilActivity"
             android:exported="false" />

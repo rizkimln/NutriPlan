@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
-    android:id="@+id/NutriChat">
+    android:id="@+id/NutriChat"
+    tools:context=".NutriChatActivity">
 
     <!-- Header Section -->
     <androidx.cardview.widget.CardView
@@ -79,40 +80,17 @@
         app:layout_constraintBottom_toTopOf="@id/input_box"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:contentDescription="@string/chat_scroll_description">
 
+        <!-- Chat Container -->
         <LinearLayout
+            android:id="@+id/chat_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:divider="@drawable/divider"
-            android:showDividers="middle">
-
-            <!-- Example Chat Bubble 1 -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bubble_left"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:elevation="4dp" />
-
-            <!-- Example Chat Bubble 2 -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bubble_right"
-                android:padding="16dp"
-                android:layout_marginBottom="8dp"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:layout_gravity="end"
-                android:elevation="4dp" />
-        </LinearLayout>
+            android:showDividers="middle" />
     </ScrollView>
 
     <!-- Quick Reply Buttons -->
@@ -150,9 +128,8 @@
             android:inputType="text"
             android:textColor="@color/black"
             android:textColorHint="@color/grey"
-            android:layout_toStartOf="@+id/send_button" />
-
-
+            android:layout_toStartOf="@+id/send_button"
+            android:autofillHints="autofillHintText" />
 
         <ImageView
             android:id="@+id/send_button"
