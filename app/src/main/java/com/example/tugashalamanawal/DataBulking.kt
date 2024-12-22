@@ -41,7 +41,7 @@ class DataBulking : AppCompatActivity() {
             val selectedGenderId = rgGender.checkedRadioButtonId
             val selectedGender = when (selectedGenderId) {
                 R.id.rbMale -> "Laki-laki" // Nama subkoleksi
-                R.id.rbFemale -> "Perempuan" // Nama subkoleksi
+                R.id.rbFemale -> "Wanita" // Nama subkoleksi
                 else -> null
             }
 

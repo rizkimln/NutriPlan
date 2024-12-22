@@ -18,7 +18,7 @@ class BulkingAdapter(
         val textDay: TextView = itemView.findViewById(R.id.textDay)
 //        val textDescription: TextView = itemView.findViewById(R.id.textDescription)
         val imageFood: ImageView = itemView.findViewById(R.id.imageFood)
-        val textSelesai: TextView = itemView.findViewById(R.id.textSelesai)
+//        val textSelesai: TextView = itemView.findViewById(R.id.textSelesai)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BulkingViewHolder {
@@ -33,11 +33,11 @@ class BulkingAdapter(
 //        holder.textDescription.text = bulkingItem.description
         holder.imageFood.setImageResource(bulkingItem.imageResource)
 
-        if (bulkingItem.isCompleted) {
-            holder.textSelesai.visibility = View.VISIBLE
-        } else {
-            holder.textSelesai.visibility = View.GONE
-        }
+//        if (bulkingItem.isCompleted) {
+//            holder.textSelesai.visibility = View.VISIBLE
+//        } else {
+//            holder.textSelesai.visibility = View.GONE
+//        }
 
         holder.itemView.setOnClickListener {
             onItemClick(bulkingItem)

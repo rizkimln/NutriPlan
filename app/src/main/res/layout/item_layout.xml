@@ -47,18 +47,6 @@
         </LinearLayout>
 
         <!-- Bagian Bawah (Indikator Selesai) -->
-        <TextView
-            android:id="@+id/textSelesai"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="8dp"
-            android:text="Selesai"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:background="@color/grey"
-            android:textColor="@color/black"
-            android:visibility="visible" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
