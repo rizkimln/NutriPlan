@@ -152,7 +152,7 @@
                         android:layout_width="80dp"
                         android:layout_height="114dp"
                         android:layout_gravity="center"
-                        app:srcCompat="@drawable/Calculator" />
+                        app:srcCompat="@drawable/calculator" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -196,7 +196,7 @@
                         android:layout_height="114dp"
                         android:layout_gravity="center"
                         android:scaleType="centerInside"
-                        app:srcCompat="@drawable/Cooking" />
+                        app:srcCompat="@drawable/cooking" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -250,7 +250,7 @@
                         android:layout_height="114dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="0dp"
-                        app:srcCompat="@drawable/Planner" />
+                        app:srcCompat="@drawable/planner" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -294,7 +294,7 @@
                         android:layout_height="114dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="0dp"
-                        app:srcCompat="@drawable/Chatbot" />
+                        app:srcCompat="@drawable/chatbot" />
 
                     <TextView
                         android:layout_width="match_parent"
