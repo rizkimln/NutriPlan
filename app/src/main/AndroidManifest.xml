@@ -19,7 +19,7 @@
             android:exported="false" />
         <activity
             android:name=".RecipeMenuActivity"
-            android:exported="true"></activity>
+            android:exported="true"/>
         <activity
             android:name=".ItemClassOnline2"
             android:exported="false" />
