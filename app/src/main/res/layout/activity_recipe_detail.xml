@@ -24,7 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:background="@color/yellow"
-                android:scaleType="centerCrop" />
+                android:scaleType="fitCenter"
+                app:srcCompat="@drawable/food" />
         </androidx.cardview.widget.CardView>
 
         <!-- Deskripsi Resep -->
