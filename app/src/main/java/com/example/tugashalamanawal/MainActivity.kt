@@ -62,6 +62,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        programDivisitKalori.setOnClickListener {
+            val intent = Intent(this, NutriChatActivity::class.java)
+            startActivity(intent)
+        }
 
 
         imageButton.setOnClickListener {

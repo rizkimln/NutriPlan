@@ -26,7 +26,7 @@
 
         <activity
             android:name=".NutriChatActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".RecipeMenuActivity"
             android:exported="true" />
@@ -54,9 +54,6 @@
             android:exported="false" />
         <activity
             android:name=".NearestGYM"
-            android:exported="false" />
-        <activity
-            android:name=".NutriChat"
             android:exported="false" />
         <activity
             android:name=".Login"

@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -6,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.example.tugashalamanawal"
-    compileSdk = 34 // Stabil dan kompatibel dengan Gradle terbaru.
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.tugashalamanawal"
@@ -16,6 +19,22 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        val localProperties = Properties()
+        val localPropertiesFile = rootProject.file("local.properties")
+        if (localPropertiesFile.exists()) {
+            localProperties.load(localPropertiesFile.inputStream())
+        }
+        buildConfigField(
+            "String",
+            "OPENAI_API_KEY",
+            "\"${localProperties.getProperty("openai.api.key")}\""
+        )
+    }
+
+        // Enable BuildConfig generation
+    buildFeatures {
+        buildConfig = true
     }
 
     buildTypes {
@@ -29,7 +48,7 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11 // Direkomendasikan
+        sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
 
@@ -39,9 +58,9 @@ android {
 }
 
 dependencies {
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("com.google.android.gms:play-services-maps:18.1.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
-    implementation("com.google.android.gms:play-services-basement:18.2.0")
     implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

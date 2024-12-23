@@ -2,6 +2,7 @@ package com.example.tugashalamanawal
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -20,6 +21,7 @@ class DetailBulking : AppCompatActivity() {
         setContentView(R.layout.activity_detail_bulking)
 
         // Inisialisasi Views
+        val backButton = findViewById<ImageView>(R.id.backButton)
         headerTitle = findViewById(R.id.headerTitle)
         sarapanContent = findViewById(R.id.sarapanContent)
         makanSiangContent = findViewById(R.id.makanSiangContent)
@@ -27,6 +29,9 @@ class DetailBulking : AppCompatActivity() {
         cemilanContent = findViewById(R.id.cemilanContent)
         olahragaContent = findViewById(R.id.olahragaContent)
 
+        backButton.setOnClickListener {
+            finish()
+        }
         // Ambil data dari intent
         val dayNumber = intent.getStringExtra("dayNumber")
         val data = intent.getSerializableExtra("data") as? Map<String, Any>
